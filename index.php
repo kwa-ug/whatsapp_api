@@ -29,6 +29,9 @@
 	/*Send Buttons*/
 
 	$sms_obj = new WA_SMS("PUBLIC_KEY", array("07XXXXXXX"));
-	$sms_obj->set_buttons("Would you prefer sms or whatsapp texts", array("Yes", "No"), "We shall be glad to get your response");
+	$sms_obj->set_buttons("Would you prefer sms or whatsapp texts"
+							, array("Yes", "No"),
+							"We shall be glad to get your response"
+						);
 	$sms_obj->send_message(WA_SMS::BUTTONS);
  ?>
