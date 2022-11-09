@@ -58,3 +58,5 @@ Send just the file
 	$sms_obj->send_message(WA_SMS::FILE);
 ```
 ![Whatsapp File Message Sample](https://github.com/kwa-ug/whatsapp_api/blob/main/img/pdf.png?raw=true)
+
+<a href="https://kwaug.com">Contact us here</a>
