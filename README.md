@@ -1,4 +1,5 @@
 # whatsapp_api
+![Whatsapp SMS API](https://github.com/kwa-ug/whatsapp_api/blob/main/img/whatsapp.png?raw=true)
 Send your whatsapp messages through us. 
 
 Instatiate the object
@@ -20,7 +21,8 @@ Send whatsapp image
 	/*Send Image*/
 
 	$sms_obj = new WA_SMS("PUBLIC_KEY", array("07XXXXXXX", "2567XXXXXX"));
-	$sms_obj->set_image("https://avatars.githubusercontent.com/u/44467800?s=48&v=4", "This is the developer's face😂. Hope you find his file 📁");
+	$sms_obj->set_image("https://avatars.githubusercontent.com/u/44467800?s=48&v=4",
+						"This is the developer's face😂. Hope you find his file 📁");
 	$sms_obj->send_message(WA_SMS::IMAGE);
 ```
 ![Whatsapp Image Message Sample](https://github.com/kwa-ug/whatsapp_api/blob/main/img/image.png?raw=true)
@@ -40,7 +42,9 @@ Send a whatsapp button
 	/*Send Buttons*/
 
 	$sms_obj = new WA_SMS("PUBLIC_KEY", array("07XXXXXXX"));
-	$sms_obj->set_buttons("Would you prefer sms or whatsapp texts", array("Yes", "No"), "We shall be glad to get your response");
+	$sms_obj->set_buttons("Would you prefer sms or whatsapp texts",
+							array("Yes", "No"), 
+							"We shall be glad to get your response");
 	$sms_obj->send_message(WA_SMS::BUTTONS);
 ```
 ![Whatsapp Button Message Sample](https://github.com/kwa-ug/whatsapp_api/blob/main/img/buttons.png?raw=true)
