@@ -1,7 +1,9 @@
 <?php 
 
 	/**
-	 * WA_SMS Class
+	 * Class  	:	WA_SMS Class
+	 * Company	:	Kwaug Technologies
+	 * Author 	:	Fredrick Wampamba
 	 */
 	class WA_SMS
 	{
@@ -108,27 +110,32 @@
 			try {
 				switch ($send_type) {
 					case WA_SMS::TEXT:
-						$body = array("text"=>urlencode($this->message));
+						$body = array("text"=>urlencode($this->message),
+							"type"=>WA_SMS:TEXT);
 						break;
 					
 					case WA_SMS::DOCUMENT:
-						$body = array("documet"=>urlencode($this->document));
+						$body = array("documet"=>urlencode($this->document),
+							"type"=>WA_SMS:DOCUMENT);
 						break;
 					
 					case WA_SMS::FILE:
-						$body = array("file"=>urlencode($this->file));
+						$body = array("file"=>urlencode($this->file),
+							"type"=>WA_SMS:FILE);
 						break;
 					
 					case WA_SMS::IMAGE:
 						$body = array("text"=>urlencode($this->message),
-									 "file"=> $this->image
-								);
+									 "file"=> $this->image,
+									 "type"=>WA_SMS:IMAGE
+									);
 						break;
 					
 					case WA_SMS::BUTTONS:
 						$body = array("text"=>urlencode($this->message),"
 										footer"=>urlencode($this->footer),
-										"buttons"=>json_encode($this->buttons)
+										"buttons"=>json_encode($this->buttons),
+										"type"=>WA_SMS:BUTTONS
 									);
 						break;
 					
@@ -147,7 +154,25 @@
 
 				/*You can change this to file_get_contents() or curl, etc or use any other transport function*/
 
-				file_get_contents($send_url);
+				return file_get_contents($send_url);
+				 
+				/* Uncomment to use curl at your convience
+				
+				// Initialize a CURL session.
+				$ch = curl_init();
+				 
+				// Return Page contents.
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+				 
+				//grab URL and pass it to the variable.
+				curl_setopt($ch, CURLOPT_URL, $send_url);
+				 
+				$result = curl_exec($ch);
+				 
+				return $result;
+	
+				*/
+ 
 
 			} catch (Exception $e) {
 				echo $e->getMessage();
