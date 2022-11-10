@@ -77,7 +77,7 @@
         	$phone_number = str_replace("{", "", $phone_number);
         	$phone_number = str_replace("}", "", $phone_number);
 
-        	$phone_number;
+        	return $phone_number;
 		}
 
 		public function set_message($message){
