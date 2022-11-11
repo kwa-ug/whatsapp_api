@@ -4,7 +4,7 @@ Send your whatsapp messages through us.
 
 Instatiate the object
 ```php
-include 'src/WA_SMS.php';
+include 'src/SMS.php';
 ```
 
 Send just a text message
