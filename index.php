@@ -1,5 +1,5 @@
 <?php 
-	include 'src/WA_SMS.php';
+	include 'src/SMS.php';
 
 	/*Send text message*/
 
