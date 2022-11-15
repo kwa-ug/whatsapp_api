@@ -111,23 +111,23 @@
 				switch ($send_type) {
 					case WA_SMS::TEXT:
 						$body = array("text"=>urlencode($this->message),
-							"type"=>WA_SMS:TEXT);
+							"type"=>WA_SMS::TEXT);
 						break;
 					
 					case WA_SMS::DOCUMENT:
 						$body = array("documet"=>urlencode($this->document),
-							"type"=>WA_SMS:DOCUMENT);
+							"type"=>WA_SMS::DOCUMENT);
 						break;
 					
 					case WA_SMS::FILE:
 						$body = array("file"=>urlencode($this->file),
-							"type"=>WA_SMS:FILE);
+							"type"=>WA_SMS::FILE);
 						break;
 					
 					case WA_SMS::IMAGE:
 						$body = array("text"=>urlencode($this->message),
 									 "file"=> $this->image,
-									 "type"=>WA_SMS:IMAGE
+									 "type"=>WA_SMS::IMAGE
 									);
 						break;
 					
@@ -135,7 +135,7 @@
 						$body = array("text"=>urlencode($this->message),"
 										footer"=>urlencode($this->footer),
 										"buttons"=>json_encode($this->buttons),
-										"type"=>WA_SMS:BUTTONS
+										"type"=>WA_SMS::BUTTONS
 									);
 						break;
 					
