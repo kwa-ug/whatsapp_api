@@ -116,7 +116,7 @@
 						break;
 					
 					case WA_SMS::DOCUMENT:
-						$body = array("documet"=>urlencode($this->document),
+						$body = array("document"=>urlencode($this->document),
 							"type"=>WA_SMS::DOCUMENT);
 						break;
 					
