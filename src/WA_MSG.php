@@ -1,11 +1,11 @@
 <?php 
 
 	/**
-	 * Class  	:	WA_SMS Class
+	 * Class  	:	WA_MSG Class
 	 * Company	:	Kwaug Technologies
 	 * Author 	:	Fredrick Wampamba
 	 */
-	class WA_SMS
+	class WA_MSG
 	{
 
 		public const DOCUMENT = "document";
@@ -15,8 +15,6 @@
 		public const FILE = "file";
 
 		public const IMAGE = "image";
-
-		public const BUTTONS = "buttons";
 
 		private $recipients;
 
@@ -29,10 +27,6 @@
 		private $file;
 
 		private $image;
-
-		private $buttons;
-
-		private $footer;
 
 		private $country_code;
 		/*
@@ -90,53 +84,36 @@
 		}
 
 		public function set_file($file_url){
-			$this->document = $file_url;
+			$this->file = $file_url;
 		}
 
 		public function set_image($image_url, $caption){
 			$this->image = $image_url;
 			$this->message = $caption;
 		}
-		/*
-		*@param message, buttons, footer.
-		* buttons e.g array("Yes","No")
-		*/
-		public function set_buttons($message,$buttons,$footer){
-			$this->message = $message;
-			$this->buttons = $buttons;
-			$this->footer = $footer;
-		}
 
 		public function send_message($send_type){
 			try {
 				switch ($send_type) {
-					case WA_SMS::TEXT:
+					case WA_MSG::TEXT:
 						$body = array("text"=>urlencode($this->message),
-							"type"=>WA_SMS::TEXT);
+							"type"=>WA_MSG::TEXT);
 						break;
 					
-					case WA_SMS::DOCUMENT:
+					case WA_MSG::DOCUMENT:
 						$body = array("document"=>urlencode($this->document),
-							"type"=>WA_SMS::DOCUMENT);
+							"type"=>WA_MSG::DOCUMENT);
 						break;
 					
-					case WA_SMS::FILE:
+					case WA_MSG::FILE:
 						$body = array("file"=>urlencode($this->file),
-							"type"=>WA_SMS::FILE);
+							"type"=>WA_MSG::FILE);
 						break;
 					
-					case WA_SMS::IMAGE:
+					case WA_MSG::IMAGE:
 						$body = array("text"=>urlencode($this->message),
 									 "file"=> $this->image,
-									 "type"=>WA_SMS::IMAGE
-									);
-						break;
-					
-					case WA_SMS::BUTTONS:
-						$body = array("text"=>urlencode($this->message),"
-										footer"=>urlencode($this->footer),
-										"buttons"=>json_encode($this->buttons),
-										"type"=>WA_SMS::BUTTONS
+									 "type"=>WA_MSG::IMAGE
 									);
 						break;
 					
