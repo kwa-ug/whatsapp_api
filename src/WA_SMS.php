@@ -151,7 +151,7 @@
 					$http_param .= "&".$key."=".$value;
 				}
 
-				$send_url = "https://dev.kwaug.com/whatsapp_api/send.php?recipients=".json_encode($this->recipients)."&pub_key=".$this->pub_key.$http_param;
+				$send_url = "https://dev.kwaug.com/messaging/whatsapp.php?recipients=".json_encode($this->recipients)."&pub_key=".$this->pub_key.$http_param;
 
 				/*You can change this to file_get_contents() or curl, etc or use any other transport function*/
 
