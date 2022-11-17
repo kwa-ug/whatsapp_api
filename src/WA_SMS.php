@@ -72,8 +72,10 @@
         	$phone_number = str_replace("{", "", $phone_number);
         	$phone_number = str_replace("}", "", $phone_number);
 
+			$phone_number = preg_replace("/[^0-9]/", "", $phone_number);
+
 			if (substr( $phone_number, 0, 1 ) === "0") {
-			    $phone_number = $this->country_code.substr($phone_number, 1);
+			    $phone_number = "256".substr($phone_number, 1);
 			}
 
         	return $phone_number;
