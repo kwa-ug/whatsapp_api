@@ -61,11 +61,6 @@
 		public function quick_format($phone_number){
 
        		$phone_number = str_replace("+", "", $phone_number);
-
-			if (substr( $phone_number, 0, 1 ) === "0") {
-			    $phone_number = $this->country_code.substr($phone_number, 1);
-			}
-
         	$phone_number = str_replace("-", "", $phone_number);
         	$phone_number = str_replace(" ", "", $phone_number);
         	$phone_number = str_replace("", "", $phone_number);
@@ -76,6 +71,10 @@
         	$phone_number = str_replace("]", "", $phone_number);
         	$phone_number = str_replace("{", "", $phone_number);
         	$phone_number = str_replace("}", "", $phone_number);
+
+			if (substr( $phone_number, 0, 1 ) === "0") {
+			    $phone_number = $this->country_code.substr($phone_number, 1);
+			}
 
         	return $phone_number;
 		}
