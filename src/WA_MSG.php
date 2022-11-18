@@ -95,25 +95,25 @@
 		public function send_message($send_type){
 			try {
 				switch ($send_type) {
-					case WA_MSG::TEXT:
+					case self::TEXT:
 						$body = array("text"=>urlencode($this->message),
-							"type"=>WA_MSG::TEXT);
+							"type"=>self::TEXT);
 						break;
 					
-					case WA_MSG::DOCUMENT:
+					case self::DOCUMENT:
 						$body = array("document"=>urlencode($this->document),
-							"type"=>WA_MSG::DOCUMENT);
+							"type"=>self::DOCUMENT);
 						break;
 					
-					case WA_MSG::FILE:
+					case self::FILE:
 						$body = array("file"=>urlencode($this->file),
-							"type"=>WA_MSG::FILE);
+							"type"=>self::FILE);
 						break;
 					
 					case WA_MSG::IMAGE:
 						$body = array("text"=>urlencode($this->message),
 									 "file"=> $this->image,
-									 "type"=>WA_MSG::IMAGE
+									 "type"=>self::IMAGE
 									);
 						break;
 					
