@@ -23,6 +23,6 @@
 	/*Send File*/
 
 	$wa_msg = new WA_MSG("PUBLIC_KEY", array("07XXXXXXX"));
-	$wa_msg->set_file("https://www.7-zip.org/a/7z920_extra.7z");
-	$wa_msg->send_message(WA_MSG::FILE);
+	$wa_msg->set_document("https://www.7-zip.org/a/7z920_extra.7z");
+	$wa_msg->send_message(WA_MSG::DOCUMENT);
  ?>
