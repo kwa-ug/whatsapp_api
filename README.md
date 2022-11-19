@@ -41,10 +41,35 @@ Send just the file
 ```php
 /*Send File*/
 
-$wa_msg = new WA_MSG("PUBLIC_KEY", array("07XXXXXXX"));
-$wa_msg->set_file("https://www.7-zip.org/a/7z920_extra.7z");
-$wa_msg->send_message(WA_MSG::FILE);
+$wa_msg = new WA_MSG("PUB-4CB968F3434FCEAE1505EB75", array("0702718025"));
+$wa_msg->set_document("https://www.7-zip.org/a/7z920_extra.7z");
+$wa_msg->send_message(WA_MSG::DOCUMENT);
 ```
 ![Whatsapp File Message Sample](https://github.com/kwa-ug/whatsapp_api/blob/main/img/pdf.png?raw=true)
+
+Successfully sent Message response
+```json
+/*HTTP 200 OK response*/
+{
+    "msg": true,
+    "remarks": {
+        "processed": 1
+    },
+    "cost": 15,
+    "acc_bal": 1065
+}
+```
+![Successfully sent whatsapp Message](https://github.com/kwa-ug/whatsapp_api/blob/main/img/success_json.png?raw=true)
+
+Failure encountered response
+```json
+/*HTTP 422 Unprocessed Entity*/
+
+/*Contains error message with what went wrong for example*/
+{
+    "errorMsg": "No such user, invalid public key"
+}
+```
+![Successfully sent whatsapp Message](https://github.com/kwa-ug/whatsapp_api/blob/main/img/error.png?raw=true)
 
 <a href="https://kwaug.com">Contact us here</a>
